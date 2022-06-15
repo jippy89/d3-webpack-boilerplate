@@ -23,6 +23,11 @@ module.exports = {
             plugins: ['@babel/plugin-transform-runtime']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        exclude: /node_modules/,
+        use: ['style-loader', 'css-loader']
       }
     ]
   },
