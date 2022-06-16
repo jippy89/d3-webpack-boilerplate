@@ -13,14 +13,14 @@ const reMap = function(oldValue) {
 
 const data = [
   [reMap(25), 0, 30, 'Spongebob', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(25), 0.2, 30, 'Patrick', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(105), 0.4, 30, 'Sandy', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(266), 1, 30, 'Squidward', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(8), 0.4, 30, 'Mr. Krab', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(189), 0.6, 30, 'Flying Dutchman', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(350), 0.6, 30, 'Plankton', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(119), 0.4, 30, 'Gary The Snail', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
-  [reMap(305), 1, 30, 'Mrs. Puff', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167']
+  [reMap(25), 0.2, 30, 'Patrick', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/330px-Patrick_Star.svg.png'],
+  [reMap(105), 0.4, 30, 'Sandy', 'https://upload.wikimedia.org/wikipedia/en/thumb/a/a0/Sandy_Cheeks.svg/330px-Sandy_Cheeks.svg.png'],
+  [reMap(266), 1, 30, 'Squidward', 'https://upload.wikimedia.org/wikipedia/en/thumb/8/8f/Squidward_Tentacles.svg/330px-Squidward_Tentacles.svg.png'],
+  [reMap(8), 0.4, 30, 'Mr. Krab', 'https://upload.wikimedia.org/wikipedia/en/thumb/f/f8/Mr._Krabs.svg/330px-Mr._Krabs.svg.png'],
+  [reMap(189), 0.6, 30, 'Flying Dutchman', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/330px-Patrick_Star.svg.png'],
+  [reMap(350), 0.6, 30, 'Plankton', 'https://upload.wikimedia.org/wikipedia/en/thumb/4/49/Plankton_and_Karen.svg/330px-Plankton_and_Karen.svg.png'],
+  [reMap(119), 0.4, 30, 'Gary The Snail', 'https://upload.wikimedia.org/wikipedia/en/thumb/3/33/Patrick_Star.svg/330px-Patrick_Star.svg.png'],
+  [reMap(305), 1, 30, 'Mrs. Puff', 'https://upload.wikimedia.org/wikipedia/en/thumb/c/ce/Mrs._Puff.svg/1024px-Mrs._Puff.svg.png']
 ];
 const polarCircleBackground = [
   '#96C6F1',
