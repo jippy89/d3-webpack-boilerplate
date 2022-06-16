@@ -63,3 +63,60 @@ const ga = svg.append('g')
 ga.append('line')
   .attr('x2', radius);
 // End of adding polar chart
+
+// Outdated API d3 v3
+// const color = d3.scale.category20();
+const color = d3.schemeCategory10
+// console.log(color)
+
+const line = d3.lineRadial()
+  .radius(function(d) {
+    console.log('line.radius', d)
+    return r(d[1]);
+  })
+  .angle(function(d) {
+    return -d[0] + Math.PI / 2;
+  });
+
+// Tooltip
+const tooltip = d3.select("body")
+	.append("div")
+	.style("position", "absolute")
+	.style("z-index", "10")
+	.style("visibility", "hidden")
+	.text("a simple tooltip");
+// console.log(tooltip)
+
+// Add the circle based on data and its colors
+svg.selectAll('point')
+  .data(data)
+  .enter()
+  .append('circle')
+  .attr('class', 'point')
+  .attr('transform', function(d) {
+    //console.log(d);
+    var coors = line([d]).slice(1).slice(0, -1); // removes 'M' and 'Z' from string
+    return 'translate(' + coors + ')'
+  })
+  .attr('r', function(d) {
+    return d[2];
+  })
+  .attr('fill',function(d,i){
+    return color[i];
+  }).on("click", function(d){
+    console.log('clickEvent', d);
+    //return tooltip.style("visibility", "visible");
+  });
+
+// adding labels
+svg.selectAll('point')
+  .data(data)
+  .enter().append("text")
+  .attr('transform', function(d) {
+    //console.log(d);
+    var coors = line([d]).slice(1).slice(0, -1); // removes 'M' and 'Z' from string
+    return 'translate(' + coors + ')'
+  })
+  .text(function(d) {         
+    return d[3]; 
+  }); 
