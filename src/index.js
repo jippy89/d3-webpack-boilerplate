@@ -69,6 +69,7 @@ ga.append('line')
 const color = d3.schemeCategory10
 // console.log(color)
 
+// Turn radial elements to x, y lines
 const line = d3.lineRadial()
   .radius(function(d) {
     console.log('line.radius', d)
@@ -96,6 +97,7 @@ svg.selectAll('point')
   .attr('transform', function(d) {
     //console.log(d);
     var coors = line([d]).slice(1).slice(0, -1); // removes 'M' and 'Z' from string
+    console.log('coors', coors);
     return 'translate(' + coors + ')'
   })
   .attr('r', function(d) {
