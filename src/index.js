@@ -32,8 +32,8 @@ const polarCircleBackground = [
 console.log('data', data);
 
 // Draw the polar chart
-const width = 600
-const height = 600
+const width = 1024
+const height = 1024
 const radius = Math.min(width, height) / 2 - 30
 
 const r = d3.scaleLinear()
