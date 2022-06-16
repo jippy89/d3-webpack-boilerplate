@@ -85,7 +85,6 @@ const color = d3.schemeCategory10
 // Turn radial elements to x, y lines
 const line = d3.lineRadial()
   .radius(function(d) {
-    console.log('line.radius', d)
     return r(d[1]);
   })
   .angle(function(d) {
