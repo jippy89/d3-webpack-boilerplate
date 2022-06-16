@@ -18,13 +18,12 @@ body {
 
 .axis line {
   fill: none;
-  stroke: #ebebeb;
+  /* stroke: #ebebeb; */
 }
 
 .axis circle {
-  fill: none;
-  stroke: #aaa;
-
+  /* fill: none; */
+  /* stroke: #aaa; */
   /* stroke-dasharray: 4; */
 }
 

@@ -21,6 +21,13 @@ const data = [
   [reMap(119), 0.4, 24, 'label 7'],
   [reMap(305), 0.8, 31, 'label 8']
 ];
+const polarCircleBackground = [
+  '#96C6F1',
+  '#6FACE2',
+  '#4196E1',
+  '#2571B4',
+  '#0E2F4C',
+]
 console.log('data', data);
 
 // Draw the polar chart
@@ -32,6 +39,7 @@ const r = d3.scaleLinear()
   .domain([0, 1])
   .range([0, radius])
 
+// Actually draw the board
 const svg = d3.select('body')
   .append('svg')
   // .call(zoom)
@@ -40,16 +48,20 @@ const svg = d3.select('body')
   .append('g')
   .attr('transform', 'translate(' + width / 2 + ',' + height / 2 + ')');
 
+// Draw the circles in the polar chart
 const gr = svg
   .append('g')
   .attr('class', 'r axis')
   .selectAll('g')
-  .data(r.ticks(5).slice(1))
+  .data(r.ticks(5).slice(1).reverse())
   .enter()
   .append('g')
 
 gr.append('circle')
-  .attr('r', r);
+  .attr('r', r)
+  .attr('fill', (d, i) => {
+    return polarCircleBackground[i]
+  });
 
 const ga = svg.append('g')
   .attr('class', 'a axis')
