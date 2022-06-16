@@ -102,23 +102,46 @@ const tooltip = d3.select("body")
 // console.log(tooltip)
 
 // Add the circle based on data and its colors
-svg.selectAll('point')
+svg.selectAll('avatar')
   .data(data)
   .enter()
-  .append('circle')
-  .attr('class', 'point')
+  .append('g')
+  .attr('class', 'avatar')
   .attr('transform', function(d) {
     //console.log(d);
-    var coors = line([d]).slice(1).slice(0, -1); // removes 'M' and 'Z' from string
+    var coors = line([d]).slice(1).slice(0, -1).split(','); // removes 'M' and 'Z' from string
     console.log('coors', coors);
+    coors[0] -= 50
+    coors[1] -= 50
     return 'translate(' + coors + ')'
   })
+  .append('defs')
+  // Idk, https://stackoverflow.com/questions/11496734/add-a-background-image-png-to-a-svg-circle-shape
+  .append('pattern')
+  .attr('id', (d, i) => 'avatar-image-' + i)
+  .attr('x', 0)
+  .attr('y', 0)
+  .attr('patternUnits', 'userSpaceOnUse')
+  .attr('width', '100')
+  .attr('height', '100')
+  // Add the image
+  .append('image')
+  .attr('x', '0')
+  .attr('y', '0')
+  .attr('width', '100')
+  .attr('height', '100')
+  .attr('xlink:href', (d, i) => d[4])
+  .select(function () { return this.parentNode.parentNode.parentNode })
+  .append('circle')
+  .attr('cx', '50')
+  .attr('cy', '50')
   .attr('r', function(d) {
     return d[2];
   })
   .attr('fill',function(d,i){
-    return color[i];
-  }).on("click", function(d){
+    return 'url(#avatar-image-' + i + ')'
+  })
+  .on("click", function(d){
     console.log('clickEvent', d);
     //return tooltip.style("visibility", "visible");
   });
