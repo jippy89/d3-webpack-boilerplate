@@ -40,6 +40,15 @@ const r = d3.scaleLinear()
   .domain([0, 1])
   .range([0, radius])
 
+// Turn radial elements to x, y lines
+const line = d3.lineRadial()
+  .radius(function(d) {
+    return r(d[1]);
+  })
+  .angle(function(d) {
+    return -d[0] + Math.PI / 2;
+  });
+
 // Actually draw the board
 const svg = d3.select('body')
   .append('svg')
@@ -81,15 +90,6 @@ ga.append('line')
 // const color = d3.scale.category20();
 const color = d3.schemeCategory10
 // console.log(color)
-
-// Turn radial elements to x, y lines
-const line = d3.lineRadial()
-  .radius(function(d) {
-    return r(d[1]);
-  })
-  .angle(function(d) {
-    return -d[0] + Math.PI / 2;
-  });
 
 // Tooltip
 const tooltip = d3.select("body")
