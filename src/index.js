@@ -113,12 +113,15 @@ svg.selectAll('point')
 // adding labels
 svg.selectAll('point')
   .data(data)
-  .enter().append("text")
+  .enter()
+  .append("text")
   .attr('transform', function(d) {
-    //console.log(d);
-    var coors = line([d]).slice(1).slice(0, -1); // removes 'M' and 'Z' from string
+    let coors = line([d]).slice(1).slice(0, -1)
+      .split(',')
+    coors[1] = parseFloat(coors[1]) - d[2] - 4
     return 'translate(' + coors + ')'
   })
+  .attr('text-anchor', 'middle')
   .text(function(d) {         
     return d[3]; 
   }); 
