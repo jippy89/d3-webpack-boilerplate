@@ -4,7 +4,7 @@ body {
 
 
 .point {
-  mix-blend-mode: multiply;
+  /* mix-blend-mode: multiply; */
 }
 
 .frame {
