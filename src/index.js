@@ -12,14 +12,15 @@ const reMap = function(oldValue) {
 }
 
 const data = [
-  [reMap(25), 1, 20, 'label 1'],
-  [reMap(105), 0.8, 10, 'label 2'],
-  [reMap(266), 1, 8, 'label 3'],
-  [reMap(8), 0.2, 22, 'label 4'],
-  [reMap(189), 1, 28, 'label 5'],
-  [reMap(350), 0.6, 15, 'label 6'],
-  [reMap(119), 0.4, 24, 'label 7'],
-  [reMap(305), 0.8, 31, 'label 8']
+  [reMap(25), 0, 30, 'Spongebob'],
+  [reMap(25), 0.2, 30, 'Patrick'],
+  [reMap(105), 0.4, 30, 'Sandy'],
+  [reMap(266), 1, 30, 'Squidward'],
+  [reMap(8), 0.4, 30, 'Mr. Krab'],
+  [reMap(189), 0.6, 30, 'Flying Dutchman'],
+  [reMap(350), 0.6, 30, 'Plankton'],
+  [reMap(119), 0.4, 30, 'Gary The Snail'],
+  [reMap(305), 1, 30, 'Mr. Puff']
 ];
 const polarCircleBackground = [
   '#96C6F1',
