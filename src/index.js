@@ -158,6 +158,7 @@ svg.selectAll('point')
     return 'translate(' + coors + ')'
   })
   .attr('text-anchor', 'middle')
+  .attr('fill', d => d[1] > 0.6 ? '#0E2F4C' : '#ffffff')
   .text(function(d) {         
     return d[3]; 
-  }); 
+  });
