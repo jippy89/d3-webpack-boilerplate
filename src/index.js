@@ -12,15 +12,15 @@ const reMap = function(oldValue) {
 }
 
 const data = [
-  [reMap(25), 0, 30, 'Spongebob'],
-  [reMap(25), 0.2, 30, 'Patrick'],
-  [reMap(105), 0.4, 30, 'Sandy'],
-  [reMap(266), 1, 30, 'Squidward'],
-  [reMap(8), 0.4, 30, 'Mr. Krab'],
-  [reMap(189), 0.6, 30, 'Flying Dutchman'],
-  [reMap(350), 0.6, 30, 'Plankton'],
-  [reMap(119), 0.4, 30, 'Gary The Snail'],
-  [reMap(305), 1, 30, 'Mr. Puff']
+  [reMap(25), 0, 30, 'Spongebob', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(25), 0.2, 30, 'Patrick', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(105), 0.4, 30, 'Sandy', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(266), 1, 30, 'Squidward', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(8), 0.4, 30, 'Mr. Krab', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(189), 0.6, 30, 'Flying Dutchman', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(350), 0.6, 30, 'Plankton', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(119), 0.4, 30, 'Gary The Snail', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167'],
+  [reMap(305), 1, 30, 'Mrs. Puff', 'https://cdn.shopify.com/s/files/1/0150/0643/3380/products/Viacom_Spongebob_U111SC119_U111SC87_00040_RO_600x.jpg?v=1563223167']
 ];
 const polarCircleBackground = [
   '#96C6F1',
