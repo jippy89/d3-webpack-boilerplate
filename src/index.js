@@ -71,7 +71,22 @@ gr.append('circle')
   .attr('r', r)
   .attr('fill', (d, i) => {
     return polarCircleBackground[i]
-  });
+  })
+  // Add label for each circle percentage
+  .select(function () { return this.parentNode })
+  .append('text')
+  .attr('transform', (d => {
+    var coors = line([[reMap(180), d]]).slice(1).slice(0, -1).split(',')
+    console.log('coors', coors)
+    coors[1] -= 8
+    return `translate(${coors})`
+  }))
+  .attr('text-anchor', 'middle')
+  .attr('fill', '#ffffff')
+  .text((d) => {
+    const num = (1 - d) * 100
+    return `${Math.round(num)}% - ${num + 20}%`
+  })
 
 const ga = svg.append('g')
   .attr('class', 'a axis')
@@ -107,9 +122,9 @@ svg.selectAll('avatar')
   .append('g')
   .attr('class', 'avatar')
   .attr('transform', function(d) {
-    //console.log(d);
+    // console.log('avatar d', d);
     var coors = line([d]).slice(1).slice(0, -1).split(','); // removes 'M' and 'Z' from string
-    console.log('coors', coors);
+    // console.log('coors', coors);
     coors[0] -= 50
     coors[1] -= 50
     return 'translate(' + coors + ')'
