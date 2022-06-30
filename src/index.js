@@ -102,7 +102,7 @@ function ForceGraph({
   node
     .append("text")
     .attr("class", "network__tag-text")
-    .text(d => "Test")
+    .text(d => d.id)
 
   if (G) node.attr("fill", ({index: i}) => color(G[i]));
   if (T) node.append("title").text(({index: i}) => T[i]);
