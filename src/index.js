@@ -1,5 +1,6 @@
 import * as d3 from 'd3'
 import graph from './graph.json'
+import './index.css'
 
 // Copyright 2021 Observable, Inc.
 // Released under the ISC license.
@@ -16,7 +17,7 @@ function ForceGraph({
   nodeStroke = "#fff", // node stroke color
   nodeStrokeWidth = 1.5, // node stroke width, in pixels
   nodeStrokeOpacity = 1, // node stroke opacity
-  nodeRadius = 5, // node radius, in pixels
+  nodeRadius = 16, // node radius, in pixels
   nodeStrength,
   linkSource = ({source}) => source, // given d in links, returns a node identifier string
   linkTarget = ({target}) => target, // given d in links, returns a node identifier string
@@ -79,16 +80,29 @@ function ForceGraph({
 
   if (W) link.attr("stroke-width", ({index: i}) => W[i]);
 
+  const paddingY = 4
   const node = svg.append("g")
       .attr("fill", nodeFill)
-      .attr("stroke", nodeStroke)
-      .attr("stroke-opacity", nodeStrokeOpacity)
-      .attr("stroke-width", nodeStrokeWidth)
-    .selectAll("circle")
+    .selectAll("g")
     .data(nodes)
-    .join("circle")
-      .attr("r", nodeRadius)
+    .join("g")
+      .append("rect")
+      .attr("class", "network__tag-container")
+      .attr("width", nodeRadius)
+      .attr("rx", "10px")
+      // .attr("width", "100%")
+      .attr("height", nodeRadius + paddingY)
+      // .attr("height", "1rem")
+      .select(function () {
+        return this.parentElement
+      })
       .call(drag(simulation));
+      
+  // Add text next to rect
+  node
+    .append("text")
+    .attr("class", "network__tag-text")
+    .text(d => "Test")
 
   if (G) node.attr("fill", ({index: i}) => color(G[i]));
   if (T) node.append("title").text(({index: i}) => T[i]);
@@ -101,15 +115,42 @@ function ForceGraph({
   }
 
   function ticked() {
+    const paddingX = 6
+
     link
       .attr("x1", d => d.source.x)
       .attr("y1", d => d.source.y)
       .attr("x2", d => d.target.x)
       .attr("y2", d => d.target.y);
 
+    function countX (coor) {
+      const textLength = this.nextElementSibling.getComputedTextLength()
+      return coor.x - textLength / 2 - paddingX
+    }
+    function countY (coor) {
+      return coor.y - nodeRadius / 2
+    }
     node
-      .attr("cx", d => d.x)
-      .attr("cy", d => d.y);
+      .select('rect')
+      .attr("x", countX)
+      .attr("y", countY);
+
+    node
+      .select('text')
+      .attr("x", (coor) => coor.x)
+      .attr("y", (coor) => coor.y + nodeRadius / 2);
+    
+    // Select `rect` and adjust its width
+    node.select('rect')
+      .attr("width", function () {
+        const textLength = this.nextElementSibling.getComputedTextLength()
+
+        if (textLength > 0) {
+          return textLength + paddingX * 2
+        }
+
+        return 0
+      })
   }
 
   function drag(simulation) {    

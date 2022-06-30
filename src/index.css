@@ -1,0 +1,9 @@
+.network__tag-container {
+  /* transform: translate(-50%, -50%) */
+  /* height: 1rem; */
+}
+
+.network__tag-text {
+  fill: white;
+  text-anchor: middle;
+}
